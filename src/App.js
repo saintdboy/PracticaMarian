@@ -4,6 +4,7 @@ import React from 'react';
 import FlightData from './Components/FlightData';
 import Loading from './Components/Loading';
 import { Container, Row, Col } from 'react-bootstrap';
+import SearchComponent from './Components/SearchComponent';
 class App extends React.Component {
   styles = {}
   state = {
@@ -31,7 +32,8 @@ class App extends React.Component {
     return (
       <Container>
         <Row>
-          <Col> {this.renderLoading()}
+          <Col> <SearchComponent></SearchComponent>
+            {this.renderLoading()}
             {
               //Iteramos los viajes y mostramos el id y el precio en un H1
               this.state.flightData?.map(x => <div>
