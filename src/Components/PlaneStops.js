@@ -2,20 +2,34 @@ import React from 'react';
 
 class PlaneStops extends React.Component {
   segments = null;
-  constructor(props){
+  constructor(props) {
     super(props);
     this.segments = props.segments;
   }
   render() {
-    return (
-      <ul>
+    return (<div>
+      <h3>Escalas</h3>
+      <table class="table">
+        <thead>
+        </thead>
         {//Iteramos los segmenos si tiene (o sea, las escalas)
-          this.segments?.map(s => <li key={s.id}>
-            Salida: {s?.departure?.iataCode} - {s.departure?.at} <br></br>
-            Llegada: {s?.arrival?.iataCode} - {s.arrival?.at} <br></br>
-            Nave: {s?.aircraft?.code} <br></br>
-          </li>)}
-      </ul>
+          this.segments?.map(s =>
+            <tbody>
+              <tr>
+                <td>Salida:
+                </td>
+                <td>
+                  {s?.departure?.iataCode} - {s.departure?.at} </td>
+                <td>Llegada:
+                </td>
+                <td>
+                  {s?.arrival?.iataCode} - {s.arrival?.at} </td>
+
+                <td>Nave:</td><td> {s?.aircraft?.code}</td>
+              </tr>
+            </tbody>)
+        }
+      </table></div>
     );
   }
 }
